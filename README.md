@@ -1,33 +1,71 @@
-# geoview
+# TerraFlow Geospatial Analysis Console
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+TerraFlow is a map-first geospatial analysis operations dashboard designed for configuring and monitoring Google Earth Engine workflows.
 
-## Built with v0
+**Developer:** Afaq Ahmad
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+## What is complete
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_vvWCLM5l4qJxMDzUPfiuB6jcsmHe)
+- Responsive dark scientific operations dashboard built with Next.js and React.
+- Map-centric workspace with a visible area-of-interest polygon.
+- Analysis configuration for name, date range, imagery source, index, and cloud coverage.
+- Interactive layer visibility controls and analysis overlay opacity.
+- Run-analysis interaction with processing and completion states.
+- Processing timeline for queued, running, and completed stages.
+- Results panel with output tile URL and copy action.
+- Operational summary cards for area, resolution, cloud cover, and estimated processing time.
+- Responsive layout for desktop and smaller screens.
+- Accessible labels, tooltips, semantic controls, and keyboard-friendly interactions.
+- Custom design tokens, typography, spacing, and map-console styling.
+- TerraFlow page metadata for SEO.
 
-## Getting Started
+## Current status
 
-First, run the development server:
+This is a polished frontend prototype. The analysis workflow currently uses local React state so the complete experience can be reviewed without external credentials or services.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Remaining work
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Google Earth Engine
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Add Google Cloud authentication and secure server-side credential handling.
+- Connect the run action to a backend route or job service.
+- Translate the selected settings and AOI into a real Earth Engine computation.
+- Submit asynchronous jobs and replace simulated progress with real task status.
 
-## Learn More
+### Data and maps
 
-To learn more, take a look at the following resources:
+- Replace the illustrative map with production map tiles and a mapping library.
+- Support drawing or importing GeoJSON AOI boundaries.
+- Render real raster layers and legends from analysis results.
+- Add map navigation, zoom, coordinates, and layer error states.
+- Persist analysis history, configurations, AOIs, and results in a database.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+### Production readiness
+
+- Add authentication and authorization.
+- Add validation, rate limits, retry, cancellation, and timeout handling.
+- Add unit, integration, and end-to-end tests.
+- Add structured logging and monitoring.
+- Configure Google Cloud and Earth Engine deployment variables.
+- Document local development, deployment, and Google Cloud setup.
+
+## Suggested architecture
+
+1. Next.js App Router frontend for the dashboard.
+2. Server-side API routes or actions for validation.
+3. A Google Cloud / Earth Engine worker for long-running processing.
+4. A database for users, jobs, AOIs, and result metadata.
+5. Object or tile storage for retained outputs.
+6. A map tile service for displaying generated Earth Engine layers.
+
+## Local development
+
+Use the package manager configured by the project to install dependencies and start the Next.js development server. Open the local URL to review the TerraFlow console.
+
+## Project direction
+
+TerraFlow should evolve into a secure geospatial analysis platform for repeatable Earth Engine workflows, asynchronous job monitoring, and reproducible result inspection.
+
+---
+
+Built by **Afaq Ahmad**.
